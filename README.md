@@ -1,4 +1,4 @@
-# hola-mundo
+# Whastapp stories clone
 
 ## Project setup
 ```

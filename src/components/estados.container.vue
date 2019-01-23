@@ -3,7 +3,7 @@
     nav Estados
     .contenido  
         header
-            miestado(:miestado='true' nombre='Mi estado' fecha='Añade un estado')
+            //- miestado(:miestado='true' nombre='Mi estado' fecha='Añade un estado')
         estados(titulo='Recientes' :estados='recientes')
         estados(titulo='Vistos' :estados='vistos')
         estados(titulo='Silenciados' :estados='silenciados' class='silenciados')

@@ -1,7 +1,6 @@
 <template lang='pug' >
 .phone
     estados
-    estados
 
 </template>
 

@@ -6,7 +6,7 @@
     :nombre='estado.nombre' 
     :fecha='estado.fecha' 
     :class='{linea:(index<estados.length-1)}' 
-    :data-id='titulo+index')
+    :idEstado='titulo+index')
 
 </template>
 
