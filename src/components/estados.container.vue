@@ -7,6 +7,7 @@
         estados(titulo='Recientes' :estados='recientes')
         estados(titulo='Vistos' :estados='vistos')
         estados(titulo='Silenciados' :estados='silenciados' class='silenciados')
+    i.fas.fa-pencil-alt
 
 </template>
 
@@ -24,16 +25,16 @@ export default {
     data(){
         return{
             recientes:[
-                {nombre:'Nancy', fecha:'Hoy'},
-                {nombre:'Roxana', fecha:'Hoy'}
+                {nombre:'Nancy', fecha:'Hoy', nEstados:3, nNuevos:2},
+                {nombre:'Roxana', fecha:'Hoy', nEstados:4, nNuevos:1}
             ],
             vistos:[
-                {nombre:'Mary', fecha:'Hoy'},
-                {nombre:'Katrisha', fecha:'Hoy'}
+                {nombre:'Mary', fecha:'Hoy', nEstados:7, nNuevos:5},
+                {nombre:'Katrisha', fecha:'Hoy', nEstados:5, nNuevos:4}
             ],
             silenciados:[
-                {nombre:'Flor', fecha:'Hoy'},
-                {nombre:'Ana', fecha:'Hoy'}
+                {nombre:'Flor', fecha:'Hoy', nEstados:6, nNuevos:3},
+                {nombre:'Ana', fecha:'Hoy', nEstados:1, nNuevos:0}
             ],
         }
     }
@@ -50,9 +51,22 @@ export default {
   margin auto
   width calc(100% / 3)
   min-width 300px
+  position relative
   & > .contenido
     height 450px 
     overflow auto
+  & > i
+    cursor pointer
+    background #2ecc71
+    font-size 1.2em
+    padding 10px
+    border-radius 50%
+    color white
+    box-shadow 0 0 7px #999
+    position absolute
+    z-index 2
+    bottom 2em
+    right 1.5em
   
   nav
     position relative

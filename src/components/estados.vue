@@ -3,10 +3,13 @@
     span {{titulo}}
     estado(v-for='(estado, index) in estados' 
     :key='index' 
+    :idEstado='titulo+index'
     :nombre='estado.nombre' 
     :fecha='estado.fecha' 
-    :class='{linea:(index<estados.length-1)}' 
-    :idEstado='titulo+index')
+    :nEstados='estado.nEstados'
+    :nNuevos='estado.nNuevos'
+    :class='{linea:(index<estados.length-1)}'
+    )
 
 </template>
 
