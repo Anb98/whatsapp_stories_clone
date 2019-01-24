@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 
 import estados from './estados'
 import miestado from './estado'
@@ -21,23 +22,22 @@ export default {
         estados,
         miestado
     },
-
-    data(){
-        return{
-            recientes:[
-                {nombre:'Nancy', fecha:'Hoy', nEstados:3, nNuevos:2},
-                {nombre:'Roxana', fecha:'Hoy', nEstados:4, nNuevos:1}
-            ],
-            vistos:[
-                {nombre:'Mary', fecha:'Hoy', nEstados:7, nNuevos:5},
-                {nombre:'Katrisha', fecha:'Hoy', nEstados:5, nNuevos:4}
-            ],
-            silenciados:[
-                {nombre:'Flor', fecha:'Hoy', nEstados:6, nNuevos:3},
-                {nombre:'Ana', fecha:'Hoy', nEstados:1, nNuevos:0}
-            ],
-        }
-    }
+    computed:{
+        recientes(){
+            return this.$store.getters.getRecientes || [];
+        },
+        vistos(){
+            return this.$store.getters.getVistos || [];
+        },
+        silenciados(){
+            return this.$store.getters.getSilenciados || [];
+        },
+        // ...mapGetters([
+        //     {recientes:'getRecientes'},
+        //     {vistos:'getVistos'},
+        //     {silenciados:'getSilenciados'}
+        // ])
+    },
 }
 </script>
 

@@ -3,12 +3,13 @@
     span {{titulo}}
     estado(v-for='(estado, index) in estados' 
     :key='index' 
-    :idEstado='titulo+index'
+    :idEstado='estado.id+"id"'
     :nombre='estado.nombre' 
     :fecha='estado.fecha' 
     :nEstados='estado.nEstados'
     :nNuevos='estado.nNuevos'
     :class='{linea:(index<estados.length-1)}'
+    @silenciar='silenciar(estado.id,estado.estados.length-1)'
     )
 
 </template>
@@ -22,6 +23,11 @@ export default {
     props:{
         titulo:{type: String, required:true},
         estados:{type: Array, required:true}
+    },
+    methods:{
+        silenciar(id,i){
+            this.$store.commit('verEstado',{id:id, i:i});
+        }
     }
 }
 </script>
