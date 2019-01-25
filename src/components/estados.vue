@@ -1,15 +1,15 @@
 <template lang="pug">
 .estados 
     span {{titulo}}
-    estado(v-for='(estado, index) in estados' 
+    estado(v-for='(persona, index) in estados' 
     :key='index' 
-    :idEstado='estado.id+"id"'
-    :nombre='estado.nombre' 
-    :fecha='estado.fecha' 
-    :nEstados='estado.nEstados'
-    :nNuevos='estado.nNuevos'
+    :idEstado='persona.id+"id"'
+    :nombre='persona.nombre' 
+    :hora='$store.getters.getHora(persona.id)' 
+    :nEstados='$store.getters.getNEstados(persona.id)'
+    :nNuevos='$store.getters.getNNuevos(persona.id)'
     :class='{linea:(index<estados.length-1)}'
-    @silenciar='silenciar(estado.id,estado.estados.length-1)'
+    @silenciar='silenciar(persona)'
     )
 
 </template>
@@ -25,7 +25,14 @@ export default {
         estados:{type: Array, required:true}
     },
     methods:{
-        silenciar(id,i){
+        silenciar(persona){
+            const i = persona.estados.findIndex(element=>{
+                return !element.visto
+            });
+            const {id} =persona;
+            
+            if(i== -1) return;
+
             this.$store.commit('verEstado',{id:id, i:i});
         }
     }

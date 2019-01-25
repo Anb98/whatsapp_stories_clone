@@ -84,15 +84,35 @@ export default new Vuex.Store({
         if(cantidadStories!=nVistos) return true;
       });
 
-      resultado.forEach((element,index)=>{
-        resultado[index].fecha    = element.estados[element.estados.length-1].hora;
-        resultado[index].nEstados = element.estados.length;
-        resultado[index].nNuevos  = element.estados.reduce((total,element,indice)=>{
-          if(!element.visto) return total+1;
-        },0);
-      });
+      // resultado.forEach((element,index)=>{
+      //   resultado[index].fecha    = element.estados[element.estados.length-1].hora;
+      //   resultado[index].nEstados = element.estados.length;
+      //   resultado[index].nNuevos  = element.estados.reduce((total,element,indice)=>{
+      //     if(!element.visto) return total+1;
+      //   },0);
+      // });
 
       return resultado;
+    },
+    getNNuevos(state){
+      return (idPersona)=>{
+        const indice=state.stories.findIndex(element=>element.id==idPersona);
+        const nuevos= state.stories[indice].estados.filter(element=> !element.visto);  
+        return nuevos.length;
+      };
+    },
+    getNEstados(state){
+      return (idPersona)=>{
+        const indice=state.stories.findIndex(element=>element.id==idPersona);
+        return state.stories[indice].estados.length;
+        
+      };
+    },
+    getHora(state){
+      return (idPersona)=>{
+        const indice=state.stories.findIndex(element=>element.id==idPersona);
+        return state.stories[indice].estados[state.stories[indice].estados.length-1].hora;
+      };
     }
   },
   mutations: {
@@ -105,7 +125,7 @@ export default new Vuex.Store({
       const {id, i} = payload;
       const indice=state.stories.findIndex(element=>element.id==id);
       state.stories[indice].estados[i].visto=true;
-      console.log(state.stories[indice].estados[i].visto);
+      
     }
 
   },

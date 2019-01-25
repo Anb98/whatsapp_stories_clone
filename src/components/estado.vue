@@ -1,11 +1,11 @@
 <template lang='pug'>
-.estado(@click='silenciar')
+.estado(@click='$emit("silenciar");')
     canvas(:id='idEstado' width='56' height='56')
     .img
     i.fas.fa-plus-circle(:class='{hide: !(miestado)}')
     .contenido
-        .nombre {{nombre}} {{nNuevos}}
-        .fecha {{fecha}}
+        .nombre {{nombre}}
+        .fecha {{hora}}
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
     miestado: {type:Boolean},
     idEstado:{type:String, required: true},
     nombre: {type: String, required:true},
-    fecha: {type: String, required:true},
+    hora: {type: String, required:true},
     nEstados: {type: Number},
     nNuevos: {type:Number}
   },
@@ -32,8 +32,6 @@ export default {
       });
     },
     nNuevos(newValue, old){
-      console.log('new',newValue);
-      console.log('old',old);
       this.hacerCirculo({
         lados: this.nEstados,
         nPrimario:newValue
@@ -41,9 +39,7 @@ export default {
     },
   },
   methods:{
-    silenciar(){
-      this.$emit('silenciar');
-    },
+    
     hacerCirculo(attr){
       const colorPrimario='#01a3a4';
       const colorSecundario='#aaa';
