@@ -1,6 +1,6 @@
 <template lang='pug'>
-.estado(@click='$emit("silenciar");')
-    canvas(:id='idEstado' width='56' height='56')
+.estado(@click='$emit("ver");')
+    canvas(ref='canvas' width='56' height='56')
     .img
     i.fas.fa-plus-circle(:class='{hide: !(miestado)}')
     .contenido
@@ -16,6 +16,10 @@ export default {
       nPrimario:this.nNuevos
     })
   },
+  beforeDestroy(){
+    const ctx = this.$refs.canvas.getContext('2d');
+    ctx.clearRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
+  },
   props:{
     miestado: {type:Boolean},
     idEstado:{type:String, required: true},
@@ -25,7 +29,7 @@ export default {
     nNuevos: {type:Number}
   },
   watch:{
-    nEstados(newValue, old){
+    nEstados(nuevo, old){
       this.hacerCirculo({
         lados: nuevo,
         nPrimario:this.nNuevos
@@ -43,12 +47,8 @@ export default {
     hacerCirculo(attr){
       const colorPrimario='#01a3a4';
       const colorSecundario='#aaa';
-    
-      const canvas = document.getElementById(this.idEstado);
 
-      // console.log(this.idEstado);
-      // return;
-      const ctx = canvas.getContext('2d');
+      const ctx = this.$refs.canvas.getContext('2d');
       
       const blanco=(Math.PI*2)/50;
       const segmento = (Math.PI*2)/attr.lados; //valor constante de cada segmento

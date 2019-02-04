@@ -9,7 +9,7 @@
     :nEstados='$store.getters.getNEstados(persona.id)'
     :nNuevos='$store.getters.getNNuevos(persona.id)'
     :class='{linea:(index<estados.length-1)}'
-    @silenciar='silenciar(persona)'
+    @ver='ver(persona)'
     )
 
 </template>
@@ -25,7 +25,7 @@ export default {
         estados:{type: Array, required:true}
     },
     methods:{
-        silenciar(persona){
+        ver(persona){
             const i = persona.estados.findIndex(element=>{
                 return !element.visto
             });
@@ -34,6 +34,7 @@ export default {
             if(i== -1) return;
 
             this.$store.commit('verEstado',{id:id, i:i});
+            this.$router.push('/view/'+id);
         }
     }
 }
