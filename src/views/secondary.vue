@@ -1,7 +1,7 @@
 <template lang="pug">
 div
     router-link( to='/') atras
-    ver
+    ver.view
 </template>
 
 <script>
