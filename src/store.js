@@ -6,30 +6,30 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     stories:[
-      {id: 1, nombre:'Nancy', silenciado:false, estados:[
+      {id: 1, nombre:'Vladimir', silenciado:false, estados:[
         {hora:'hace 39 minutos', tipo:'text', contenido:'Ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 38 minutos', tipo:'text', contenido:'Ejemplo', visto:false, font:'',bgcolor:'green'}
       ]},
-      {id: 2, nombre:'Roxana', silenciado:false, estados:[
+      {id: 2, nombre:'Bryan', silenciado:false, estados:[
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
       ]},
-      {id: 3, nombre:'Mary', silenciado:false, estados:[
+      {id: 3, nombre:'Roxana', silenciado:false, estados:[
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
       ]},
-      {id: 4, nombre:'Katrisha', silenciado:false, estados:[
+      {id: 4, nombre:'Javier', silenciado:false, estados:[
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
       ]},
-      {id: 5, nombre:'Flor', silenciado:true, estados:[
+      {id: 5, nombre:'Kevin', silenciado:true, estados:[
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
       ]},
-      {id: 6, nombre:'Ana', silenciado:true, estados:[
+      {id: 6, nombre:'primo', silenciado:true, estados:[
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
         {hora:'hace 39 minutos', tipo:'text', contenido:'ejemplo', visto:false, font:'',bgcolor:'green'},
       ]}

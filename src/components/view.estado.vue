@@ -1,11 +1,12 @@
+<!-- prettier-ignore -->
 <template lang="pug">
 .content
     header
         .progress
-            .progressBar(v-for='(estado, index) in estados' :key='index')
+            .progressBar(v-for='(estado, index) in estados' v-bind:key='index')
         i.fas.fa-arrow-left(@click='$router.go(-1)')
         .persona 
-            img(alt='foto' height='50' width='50' src='https://randomuser.me/api/portraits/women/33.jpg')
+            img(alt='foto' height='50' width='50' src='https://randomuser.me/api/portraits/men/22.jpg')
             .datos
                 span Nombre contacto
                 br
@@ -16,12 +17,12 @@
 
 <script>
 export default {
-    computed:{
-        estados(){
-            return this.$store.getters.getEstados(this.$route.params.id);
-        }
+  computed: {
+    estados() {
+      return this.$store.getters.getEstados(this.$route.params.id);
     }
-}
+  }
+};
 </script>
 
 <style lang="stylus">
@@ -29,7 +30,7 @@ export default {
     background black
     height 90vh
 header
-    i 
+    i
         cursor pointer
         color white
         padding 10px
@@ -75,8 +76,4 @@ header
         margin 5px
         border-radius 10px
         background rgba(white,0.5)
-    
-
 </style>
-
-
